@@ -1,0 +1,402 @@
+/* Variables de Colores */
+:root {
+    --color-primary: #AA8D8D; /* Marrón Rosado / Dusty Pink */
+    --color-secondary-dark: #7C7573; /* Gris Topo */
+    --color-background-light: #F8F5EE; /* Beige muy claro */
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-border: #dcdcdc;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* Reset Básico y Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-light);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Botones */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--color-primary), 10%); /* Efecto hover más oscuro */
+    text-decoration: none;
+}
+
+/* Header / Hero Section */
+.hero-section {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light);
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para apilar elementos */
+    align-items: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative; /* Para el degradado de fondo */
+    min-height: 400px; /* Altura mínima para que el diseño se vea bien */
+    justify-content: center;
+}
+
+/* Efecto de fondo degradado sutil */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    z-index: 0;
+}
+
+.logo-container, .hero-text-container {
+    position: relative;
+    z-index: 1;
+}
+
+.logo-mb {
+    font-family: var(--font-heading);
+    font-size: 8rem; /* Tamaño grande para el logo */
+    color: var(--color-primary);
+    line-height: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.logo-text-juridico {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-top: -1rem; /* Acercar al logo MB */
+    margin-bottom: 1rem;
+}
+
+.logo-text-specialties {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+}
+
+.hero-slogan {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-top: 2rem;
+    line-height: 1.2;
+}
+
+/* Secciones Generales */
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+section h2 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Sección de Servicios */
+.services-section {
+    background-color: var(--color-background-light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: var(--color-secondary-dark);
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: var(--color-text-dark);
+}
+
+/* Sección de Noticias */
+.news-section {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light);
+}
+
+.news-section h2 {
+    color: var(--color-text-light);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+}
+
+.news-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.news-card:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.news-card h3 {
+    font-size: 1.3rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.news-card .news-date {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.news-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.news-card .read-more {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.news-card .read-more:hover {
+    text-decoration: underline;
+}
+
+.view-all-news {
+    margin-top: 2rem;
+}
+
+/* Sección de Contacto y Formulario */
+.contact-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    gap: 4rem;
+    justify-content: center;
+    background-color: var(--color-background-light);
+    padding: 5rem 2rem;
+    text-align: left; /* Alineación de texto por defecto */
+}
+
+.contact-info, .contact-form {
+    flex: 1; /* Cada columna ocupa el mismo espacio */
+    min-width: 300px; /* Ancho mínimo para columnas */
+    max-width: 500px;
+}
+
+.contact-info h2, .contact-form h2 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--color-secondary-dark);
+    margin-right: 1rem;
+    width: 25px; /* Para alinear íconos */
+    text-align: center;
+}
+
+.contact-item a, .contact-item span {
+    color: var(--color-text-dark);
+}
+
+.contact-info .btn-primary {
+    margin-top: 2rem;
+    width: auto; /* Ajusta el botón del formulario de contacto */
+}
+
+/* Estilos del Formulario */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    width: 100%;
+    background-color: #fff;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .btn-primary {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-secondary-dark);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+
+    .logo-mb {
+        font-size: 6rem;
+    }
+
+    .logo-text-juridico {
+        font-size: 1rem;
+        letter-spacing: 0.2em;
+    }
+    .logo-text-specialties {
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+    }
+
+    .hero-slogan {
+        font-size: 1.8rem;
+        margin-top: 1.5rem;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .services-grid, .news-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+        max-width: 400px;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .contact-info, .contact-form {
+        max-width: 100%; /* Ocupan todo el ancho */
+        width: 100%;
+        text-align: center;
+    }
+    .contact-info h2, .contact-form h2 {
+        text-align: center;
+    }
+    .contact-item {
+        justify-content: center;
+    }
+    .contact-info .btn-primary {
+        width: 100%;
+    }
+}   
