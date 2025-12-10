@@ -341,11 +341,11 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- Estilos del Menú de Navegación (CORREGIDO) --- */
+/* --- Estilos del Menú de Navegación (Header Fijo) --- */
 
 .navbar {
-    /* OCULTAR COMPLETAMENTE EN ESCRITORIO */
-    display: none; 
+    /* MOSTRAR EN ESCRITORIO (Diseño Horizontal) */
+    display: flex; 
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -356,9 +356,31 @@ footer {
     z-index: 1000;
 }
 
-/* Los links están ocultos por defecto, solo se muestran en móvil o con clase 'open' */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-mb-mini {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.logo-text-juridico-mini {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+}
+
 .nav-links {
     list-style: none;
+    display: flex; /* Visible en escritorio */
+    flex-direction: row; /* Horizontal en escritorio */
     gap: 2rem;
 }
 
@@ -374,8 +396,7 @@ footer {
 }
 
 .menu-toggle {
-    /* OCULTO EN ESCRITORIO */
-    display: none; 
+    display: none; /* Oculto en escritorio */
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -383,6 +404,54 @@ footer {
     cursor: pointer;
 }
 
+/* --- Media Queries para Responsividad (Aquí se activa la Hamburguesa) --- */
+
+@media (max-width: 768px) {
+    /* MOSTRAR LA BARRA DE NAVEGACIÓN EN MÓVILES */
+    .navbar {
+        display: flex; 
+    }
+
+    /* Muestra el botón de hamburguesa */
+    .menu-toggle {
+        display: block; 
+    }
+    
+    /* Oculta el menú en móvil por defecto (y JS lo abre) */
+    .nav-links {
+        display: none; 
+        flex-direction: column; /* Vertical en móvil */
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: var(--color-secondary-dark);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 1rem 0;
+        gap: 0;
+    }
+
+    .nav-links.open {
+        display: flex; /* JS agrega esta clase para mostrar el menú */
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.75rem 0;
+        color: var(--color-text-light);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+ }
 /* --- Media Queries para Responsividad --- */
 @media (max-width: 768px) {
     /* MOSTRAR LA BARRA DE NAVEGACIÓN EN MÓVILES */
