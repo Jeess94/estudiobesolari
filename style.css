@@ -341,11 +341,12 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- Estilos del Menú de Navegación (Header Fijo) --- */
+/* --- Estilos del Menú de Navegación (CORREGIDO) --- */
 
 .navbar {
+    /* OCULTAR COMPLETAMENTE EN ESCRITORIO */
+    display: none; 
     width: 100%;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
@@ -355,30 +356,9 @@ footer {
     z-index: 1000;
 }
 
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.logo-mb-mini {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--color-primary);
-    line-height: 1;
-}
-
-.logo-text-juridico-mini {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-text-light);
-}
-
+/* Los links están ocultos por defecto, solo se muestran en móvil o con clase 'open' */
 .nav-links {
     list-style: none;
-    display: flex;
     gap: 2rem;
 }
 
@@ -394,6 +374,7 @@ footer {
 }
 
 .menu-toggle {
+    /* OCULTO EN ESCRITORIO */
     display: none; 
     background: none;
     border: none;
@@ -404,6 +385,11 @@ footer {
 
 /* --- Media Queries para Responsividad --- */
 @media (max-width: 768px) {
+    /* MOSTRAR LA BARRA DE NAVEGACIÓN EN MÓVILES */
+    .navbar {
+        display: flex; 
+    }
+
     /* Muestra el botón de hamburguesa */
     .menu-toggle {
         display: block; 
@@ -489,13 +475,13 @@ footer {
     .contact-info, .contact-form {
         max-width: 100%;
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
     .contact-info h2, .contact-form h2 {
         text-align: center;
     }
     .contact-item {
-        justify-content: center;
+        /* Permite centrar los íconos si se desea */
     }
     .contact-info .btn-primary {
         width: 100%;
