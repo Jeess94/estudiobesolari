@@ -60,7 +60,7 @@ a:hover {
 }
 
 .btn-primary:hover {
-    background-color: darken(var(--color-primary), 10%); /* Efecto hover más oscuro */
+    background-color: #927575; /* Efecto hover más oscuro */
     text-decoration: none;
 }
 
@@ -69,12 +69,12 @@ a:hover {
     background-color: var(--color-secondary-dark);
     color: var(--color-text-light);
     display: flex;
-    flex-direction: column; /* Cambiado a columna para apilar elementos */
+    flex-direction: column;
     align-items: center;
     padding: 4rem 2rem;
     text-align: center;
-    position: relative; /* Para el degradado de fondo */
-    min-height: 400px; /* Altura mínima para que el diseño se vea bien */
+    position: relative;
+    min-height: 400px; 
     justify-content: center;
 }
 
@@ -97,7 +97,7 @@ a:hover {
 
 .logo-mb {
     font-family: var(--font-heading);
-    font-size: 8rem; /* Tamaño grande para el logo */
+    font-size: 8rem;
     color: var(--color-primary);
     line-height: 0.8;
     margin-bottom: 0.5rem;
@@ -109,7 +109,7 @@ a:hover {
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--color-text-light);
-    margin-top: -1rem; /* Acercar al logo MB */
+    margin-top: -1rem;
     margin-bottom: 1rem;
 }
 
@@ -250,17 +250,17 @@ section h2 {
 /* Sección de Contacto y Formulario */
 .contact-section {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
     gap: 4rem;
     justify-content: center;
     background-color: var(--color-background-light);
     padding: 5rem 2rem;
-    text-align: left; /* Alineación de texto por defecto */
+    text-align: left;
 }
 
 .contact-info, .contact-form {
-    flex: 1; /* Cada columna ocupa el mismo espacio */
-    min-width: 300px; /* Ancho mínimo para columnas */
+    flex: 1;
+    min-width: 300px;
     max-width: 500px;
 }
 
@@ -283,7 +283,7 @@ section h2 {
     font-size: 1.5rem;
     color: var(--color-secondary-dark);
     margin-right: 1rem;
-    width: 25px; /* Para alinear íconos */
+    width: 25px;
     text-align: center;
 }
 
@@ -293,7 +293,7 @@ section h2 {
 
 .contact-info .btn-primary {
     margin-top: 2rem;
-    width: auto; /* Ajusta el botón del formulario de contacto */
+    width: auto;
 }
 
 /* Estilos del Formulario */
@@ -341,8 +341,109 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Media Queries para Responsividad */
+/* --- Estilos del Menú de Navegación (Header Fijo) --- */
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-mb-mini {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.logo-text-juridico-mini {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--color-text-light);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    cursor: pointer;
+}
+
+/* --- Media Queries para Responsividad --- */
 @media (max-width: 768px) {
+    /* Muestra el botón de hamburguesa */
+    .menu-toggle {
+        display: block; 
+    }
+    
+    /* Oculta el menú por defecto y lo coloca en columna */
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: var(--color-secondary-dark);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 1rem 0;
+        gap: 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.75rem 0;
+        color: var(--color-text-light);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Ajustes generales */
     .hero-section {
         padding: 3rem 1rem;
     }
@@ -375,7 +476,7 @@ footer {
     }
 
     .services-grid, .news-grid {
-        grid-template-columns: 1fr; /* Una columna en móviles */
+        grid-template-columns: 1fr;
         max-width: 400px;
     }
 
@@ -386,7 +487,7 @@ footer {
     }
 
     .contact-info, .contact-form {
-        max-width: 100%; /* Ocupan todo el ancho */
+        max-width: 100%;
         width: 100%;
         text-align: center;
     }
@@ -399,4 +500,4 @@ footer {
     .contact-info .btn-primary {
         width: 100%;
     }
-}   
+}
