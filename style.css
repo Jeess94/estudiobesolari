@@ -341,10 +341,10 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- Estilos del Menú de Navegación (Header Fijo) --- */
+/* --- Estilos del Menú de Navegación (HAMBURGUESA SIEMPRE ACTIVA) --- */
 
 .navbar {
-    /* MOSTRAR EN ESCRITORIO (Diseño Horizontal) */
+    /* MOSTRAR EN TODAS LAS VISTAS */
     display: flex; 
     width: 100%;
     justify-content: space-between;
@@ -379,15 +379,28 @@ footer {
 
 .nav-links {
     list-style: none;
-    display: flex; /* Visible en escritorio */
-    flex-direction: row; /* Horizontal en escritorio */
-    gap: 2rem;
+    /* Ocultar siempre por defecto (JS lo abrirá) */
+    display: none; 
+    flex-direction: column; /* Siempre vertical */
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: var(--color-secondary-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem 0;
+    gap: 0;
+}
+
+.nav-links.open {
+    display: flex; /* JS añade esta clase para mostrar el menú */
 }
 
 .nav-links a {
+    display: block;
+    padding: 0.75rem 0;
     color: var(--color-text-light);
-    font-weight: 500;
-    transition: color 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-links a:hover {
@@ -395,8 +408,9 @@ footer {
     text-decoration: none;
 }
 
+/* El botón de hamburguesa es visible en TODAS las resoluciones */
 .menu-toggle {
-    display: none; /* Oculto en escritorio */
+    display: block; 
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -404,100 +418,10 @@ footer {
     cursor: pointer;
 }
 
-/* --- Media Queries para Responsividad (Aquí se activa la Hamburguesa) --- */
+
+/* --- Media Queries (Ajustes de Responsividad General) --- */
 
 @media (max-width: 768px) {
-    /* MOSTRAR LA BARRA DE NAVEGACIÓN EN MÓVILES */
-    .navbar {
-        display: flex; 
-    }
-
-    /* Muestra el botón de hamburguesa */
-    .menu-toggle {
-        display: block; 
-    }
-    
-    /* Oculta el menú en móvil por defecto (y JS lo abre) */
-    .nav-links {
-        display: none; 
-        flex-direction: column; /* Vertical en móvil */
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: var(--color-secondary-dark);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 1rem 0;
-        gap: 0;
-    }
-
-    .nav-links.open {
-        display: flex; /* JS agrega esta clase para mostrar el menú */
-    }
-
-    .nav-links li {
-        text-align: center;
-        width: 100%;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 0.75rem 0;
-        color: var(--color-text-light);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .nav-links li:last-child a {
-        border-bottom: none;
-    }
-
- }
-/* --- Media Queries para Responsividad --- */
-@media (max-width: 768px) {
-    /* MOSTRAR LA BARRA DE NAVEGACIÓN EN MÓVILES */
-    .navbar {
-        display: flex; 
-    }
-
-    /* Muestra el botón de hamburguesa */
-    .menu-toggle {
-        display: block; 
-    }
-    
-    /* Oculta el menú por defecto y lo coloca en columna */
-    .nav-links {
-        display: none; 
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: var(--color-secondary-dark);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 1rem 0;
-        gap: 0;
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links li {
-        text-align: center;
-        width: 100%;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 0.75rem 0;
-        color: var(--color-text-light);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .nav-links li:last-child a {
-        border-bottom: none;
-    }
-
     /* Ajustes generales */
     .hero-section {
         padding: 3rem 1rem;
@@ -548,9 +472,6 @@ footer {
     }
     .contact-info h2, .contact-form h2 {
         text-align: center;
-    }
-    .contact-item {
-        /* Permite centrar los íconos si se desea */
     }
     .contact-info .btn-primary {
         width: 100%;
