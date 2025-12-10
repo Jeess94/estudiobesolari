@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,23 @@
 <body>
 
     <header class="hero-section">
+        <nav class="navbar">
+            <div class="nav-logo">
+                <span class="logo-mb-mini">MB</span>
+                <span class="logo-text-juridico-mini">ESTUDIO JURÍDICO</span>
+            </div>
+            
+            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="main-nav">
+                <li><a href="#services-section">Servicios</a></li>
+                <li><a href="#news-section">Noticias</a></li>
+                <li><a href="#contact-section">Contacto</a></li>
+            </ul>
+        </nav>
+
         <div class="logo-container">
             <h1 class="logo-mb">MB</h1>
             <p class="logo-text-juridico">ESTUDIO JURÍDICO</p>
@@ -24,7 +41,8 @@
     </header>
 
     <main>
-        <section class="services-section">
+        
+        <section class="services-section" id="services-section">
             <h2>Nuestras Áreas de Práctica</h2>
             <div class="services-grid">
                 <div class="service-card">
@@ -45,7 +63,8 @@
             </div>
         </section>
 
-        <section class="news-section">
+        
+        <section class="news-section" id="news-section">
             <h2>Novedades Legales</h2>
             <div class="news-grid">
                 <article class="news-card">
@@ -70,12 +89,13 @@
             <a href="#" class="btn-primary view-all-news">Ver Todas las Noticias</a>
         </section>
 
-        <section class="contact-section">
+        
+        <section class="contact-section" id="contact-section">
             <div class="contact-info">
                 <h2>Contáctenos</h2>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps/search/Avellaneda+751,+Luján" target="_blank">Avellaneda 751, Luján</a>
+                    <a href="http://maps.google.com/?q=Avellaneda 751, Luján" target="_blank">Avellaneda 751, Luján</a>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-whatsapp"></i>
@@ -89,9 +109,12 @@
                     <i class="far fa-clock"></i>
                     <span>Martes a Jueves: 10:00 a 13:00 / 16:00 a 19:00</span>
                 </div>
+                <button class="btn-primary">ENVIAR CONSULTA</button> 
+            </div>
 
             <div class="contact-form">
                 <h2>¿Tiene una consulta? Deje sus datos y lo contactaremos</h2>
+                
                 <form name="contact" method="POST" action="/success" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="contact" />
                     <p hidden>
@@ -129,5 +152,6 @@
         <p>&copy; 2024 Estudio Jurídico MB. Todos los derechos reservados.</p>
     </footer>
 
+    <script src="app.js"></script> 
 </body>
 </html>
