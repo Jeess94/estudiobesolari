@@ -1,0 +1,205 @@
+/* Variables de Colores */
+:root {
+    --color-primary: #AA8D8D; /* Marrón Rosado / Dusty Pink */
+    --color-secondary-dark: #7C7573; /* Gris Topo */
+    --color-background-light: #F8F5EE; /* Beige muy claro */
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-border: #dcdcdc;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* Reset Básico y Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-light);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Botones */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #947a7a; /* Color manual oscurecido ya que CSS puro no soporta darken() */
+    text-decoration: none;
+}
+
+/* Header / Hero Section */
+.hero-section {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative; 
+    min-height: 400px; 
+    justify-content: center;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    z-index: 0;
+}
+
+.logo-container, .hero-text-container {
+    position: relative;
+    z-index: 1;
+}
+
+.logo-mb {
+    font-family: var(--font-heading);
+    font-size: 8rem; 
+    color: var(--color-primary);
+    line-height: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.logo-text-juridico {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-top: -1rem; 
+    margin-bottom: 1rem;
+}
+
+.logo-text-specialties {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+}
+
+.hero-slogan {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-top: 2rem;
+    line-height: 1.2;
+}
+
+/* Secciones Generales */
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+section h2 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Sección de Servicios */
+.services-section {
+    background-color: var(--color-background-light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+/* --- NUEVA SECCIÓN: CENTRADO DE GOOGLE FORMS --- */
+.google-form-container {
+    display: flex;
+    justify-content: center; /* Centra el iframe horizontalmente */
+    width: 100%;
+    padding: 2rem 0;
+    background-color: var(--color-background-light);
+}
+
+.google-form-container iframe {
+    max-width: 100%; /* Evita que se rompa en móviles */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Opcional: le da un toque profesional */
+    border-radius: 8px;
+}
+
+/* --- FIN SECCIÓN CENTRADO --- */
+
+/* Footer */
+footer {
+    background-color: var(--color-secondary-dark);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .logo-mb { font-size: 6rem; }
+    .hero-slogan { font-size: 1.8rem; }
+    .services-grid { grid-template-columns: 1fr; }
+}
